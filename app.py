@@ -2,10 +2,10 @@ from dash import Dash, html, dcc, Input, Output, State
 import dash
 import dash_bootstrap_components as dbc
 from src.sidebar import create_navibar
-from pages.about import create_about_content
-from pages.webscraping import layout as scraping_layout
-from pages.eda import layout as eda_layout 
-from pages.folium import layout as folium_layout
+from src.pages.about import create_about_content
+from src.pages.webscraping import layout as scraping_layout
+from src.pages.eda import layout as eda_layout 
+from src.pages.folium import layout as folium_layout
 
 app = Dash(
     __name__,
@@ -120,4 +120,4 @@ def display_page(pathname):
         return html.H1("404: Page Not Found", className="error")
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)
