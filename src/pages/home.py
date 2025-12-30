@@ -1,9 +1,9 @@
 from dash import dcc, html, Input, Output, callback
 import dash_bootstrap_components as dbc
-from dashboard.scatter import get_scatter_chart
-from dashboard.pie import get_pie_chart
-from dashboard.payload import get_payload_range
-from dashboard.dropdown import dropdown_menu
+from src.dashboard.scatter import get_scatter_chart
+from src.dashboard.pie import get_pie_chart
+from src.dashboard.payload import get_payload_range
+from src.dashboard.dropdown import dropdown_menu
 
 def create_home_page():
     return dbc.Container([

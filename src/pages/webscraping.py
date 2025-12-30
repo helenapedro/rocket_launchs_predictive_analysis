@@ -2,7 +2,7 @@ from dash import dcc, html, Input, Output, State, callback
 import dash_bootstrap_components as dbc
 from dash import dash_table
 
-from webscrapping.fetch_and_process_data import fetch_falcon_9_launch_data
+from src.webscrapping.fetch_and_process_data import fetch_falcon_9_launch_data
 
 layout = dbc.Container(
     [

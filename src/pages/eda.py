@@ -2,10 +2,10 @@ import os
 from dash import html
 import dash_bootstrap_components as dbc
 
-from pages.home import create_home_page
-from pages.data_exploration import create_exploration_page
-from components.EdaSql import eda_cards
-from components.EdaGraphsSection import eda_graphs
+from src.pages.home import create_home_page
+from src.pages.data_exploration import create_exploration_page
+from src.components.EdaSql import eda_cards
+from src.components.EdaGraphsSection import eda_graphs
 
 layout = dbc.Container(
     [
