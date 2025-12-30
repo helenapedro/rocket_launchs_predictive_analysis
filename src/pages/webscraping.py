@@ -79,20 +79,16 @@ layout = dbc.Container(
 )
 
 
+# Dash Callback to update table and handle CSV download
 @callback(
     [Output("table-container", "children"),
      Output("download-dataframe-csv", "data")],
     [Input("scrape-button", "n_clicks")]
 )
 
-
 def update_table(n_clicks):
-    if not n_clicks:
-        return html.Div("Clique em 'Download Scrape Launch Data' para carregar os dados."), None
-
     df = fetch_falcon_9_launch_data()
 
-    # Convert DataFrame to Dash table
     table = dash_table.DataTable(
         id="launch-table",
         columns=[{"name": col, "id": col} for col in df.columns],
@@ -100,12 +96,12 @@ def update_table(n_clicks):
         style_table={'height': '400px', 'overflowY': 'auto'},
         style_cell={'textAlign': 'center'},
     )
-
     if n_clicks > 0:
         return table, dcc.send_data_frame(df.to_csv, "falcon9_launches.csv")
 
     return table, None
 
+# Callback to toggle the visibility of the code snippet description
 @callback(
     Output("webscraping-data-description", "style"),
     Input("toggle-webscraping-description", "n_clicks"),
@@ -135,7 +131,6 @@ def toggle_code_snippet_visibility(n_clicks):
      prevent_initial_call=True
 )
 def update_scraping_summary(n_clicks, is_visible):
-    # Toggle visibility state
     new_visibility = not is_visible
 
     if new_visibility:
