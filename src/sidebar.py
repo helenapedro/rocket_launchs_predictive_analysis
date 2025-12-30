@@ -41,7 +41,7 @@ def create_navibar():
                                             html.I(className="fas fa-briefcase me-2"),
                                             "Portfolio"
                                         ]),
-                                        href="https://helenapedro.mtcambrosio.com/",
+                                        href="https://myportfolio.hmpedro.com/",
                                         target="_blank"
                                     ),
                                 ],

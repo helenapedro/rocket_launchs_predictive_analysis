@@ -1,7 +1,7 @@
 from dash import Dash, html, dcc, Input, Output, State
 import dash
 import dash_bootstrap_components as dbc
-from sidebar import create_navibar
+from src.sidebar import create_navibar
 from pages.about import create_about_content
 from pages.webscraping import layout as scraping_layout
 from pages.eda import layout as eda_layout 
