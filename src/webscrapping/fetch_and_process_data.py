@@ -3,7 +3,6 @@ import pandas as pd
 import unicodedata
 import requests
 
-# Scraping function to fetch and process the Falcon 9 launches data
 def fetch_falcon_9_launch_data():
     static_url = "https://en.wikipedia.org/w/index.php?title=List_of_Falcon_9_and_Falcon_Heavy_launches&oldid=1027686922"
     response = requests.get(static_url)
@@ -11,16 +10,14 @@ def fetch_falcon_9_launch_data():
 
     html_tables = soup.find_all('table', class_='wikitable plainrowheaders collapsible')
 
-    # Extract column names from the header of the third table
     column_names = []
     first_launch_table = html_tables[2]
     tc = first_launch_table.find_all('th')
     for th in tc:
         name = extract_column_from_header(th)
-        if name and name != 'Date and time':  # Exclude the 'Date and time' column
+        if name and name != 'Date and time':
             column_names.append(name)
 
-    # Create dictionary to hold the scraped data, initializing with empty lists
     launch_dict = {name: [] for name in column_names}
     launch_dict['Launch site'] = []
     launch_dict['Payload'] = []
@@ -65,22 +62,22 @@ def fetch_falcon_9_launch_data():
 
                     launch_dict['Booster landing'].append(landing_status(row[8]))
 
-    # Ensure all columns are the same length
-    max_length = max(len(lst) for lst in launch_dict.values() if lst is not None)  # Find the maximum length, excluding None
+    max_length = max(len(lst) for lst in launch_dict.values() if lst is not None) 
     for key, value in launch_dict.items():
-        # Append None (or any placeholder) to lists that are shorter
         while len(value) < max_length:
             value.append(None)
 
-    # Convert the dictionary into a DataFrame
     df = pd.DataFrame(launch_dict)
 
-    # Return only the relevant columns
-    df = df[['Date', 'Time', 'Launch site', 'Payload', 'Payload mass', 'Orbit', 'Customer', 'Launch outcome', 'Version Booster', 'Booster landing']]
+    df = df[[
+        'Date', 'Time', 'Launch site', 
+        'Payload', 'Payload mass', 
+        'Orbit', 'Customer', 'Launch outcome', 
+        'Version Booster', 'Booster landing'
+        ]]
 
     return df
 
-# Scraping Functions
 def date_time(table_cells):
     return [data_time.strip() for data_time in list(table_cells.strings)][0:2]
 
