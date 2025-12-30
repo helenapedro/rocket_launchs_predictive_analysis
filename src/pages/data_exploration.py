@@ -9,7 +9,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from data.clean_data import fetch_and_clean_launch_data
 from data.data_fetch import fetch_initial_data
 from data.row_data import fetch_initial_data_layout
-from utils.api_description import eda_rest_api
+from src.utils.api_description import eda_rest_api
 
 # Fetch and clean launch data
 launch_data = fetch_and_clean_launch_data()
