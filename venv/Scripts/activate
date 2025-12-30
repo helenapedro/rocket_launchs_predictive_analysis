@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\mbeua\Área de Trabalho\Projects\Current\rocket_launchs_predictive_analysis\venv"
+VIRTUAL_ENV="C:\Users\mbeua\Área de Trabalho\Projects\Completed\rocket-launch\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

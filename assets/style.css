@@ -1,0 +1,85 @@
+/* Base styles for larger screens */
+.main-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #b6d2ef;
+  color: black;
+  padding: 15px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 20px;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Error page */
+.error {
+  text-align: center;
+  color: red;
+}
+
+/* Responsive styles for screens smaller than 768px */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative; /* Sidebar moves to the top */
+  }
+
+  .content {
+    margin-left: 0; /* Remove the margin for small screens */
+    padding: 10px;
+  }
+
+  button {
+    width: 100%; /* Buttons take full width */
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+/* Additional styles for very small screens (< 480px) */
+@media screen and (max-width: 480px) {
+  .main-container {
+    padding: 10px;
+  }
+
+  .content {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .sidebar {
+    font-size: 16px; /* Adjust sidebar font size */
+    background-color: "#f8f9fa";
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
